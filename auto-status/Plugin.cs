@@ -48,6 +48,8 @@ public sealed class Plugin : IDalamudPlugin
     private const string CommandAlias = "/aus";
 
     private bool? wasFocused;
+    private bool? pendingFocus;
+    private DateTime pendingFocusSince;
 
     public Plugin()
     {
@@ -119,6 +121,7 @@ public sealed class Plugin : IDalamudPlugin
         if (!ClientState.IsLoggedIn)
         {
             wasFocused = null;
+            pendingFocus = null;
             return;
         }
 
@@ -126,16 +129,30 @@ public sealed class Plugin : IDalamudPlugin
         if (wasFocused is null)
         {
             wasFocused = isFocused;
+            pendingFocus = null;
             return;
         }
 
         if (isFocused == wasFocused)
         {
+            pendingFocus = null;
+            return;
+        }
+
+        if (pendingFocus != isFocused)
+        {
+            pendingFocus = isFocused;
+            pendingFocusSince = DateTime.UtcNow;
+            return;
+        }
+
+        if (DateTime.UtcNow - pendingFocusSince < TimeSpan.FromSeconds(2))
+        {
             return;
         }
 
         wasFocused = isFocused;
-
+        pendingFocus = null;
         ApplyStatus(isFocused, isManual: false);
     }
 
