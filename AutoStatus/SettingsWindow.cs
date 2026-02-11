@@ -10,7 +10,7 @@ public sealed class SettingsWindow : Window
     private readonly Plugin plugin;
 
     public SettingsWindow(Plugin plugin, Configuration configuration)
-        : base("Auto-Status Settings")
+        : base("Auto-status Settings")
     {
         this.plugin = plugin;
         this.configuration = configuration;

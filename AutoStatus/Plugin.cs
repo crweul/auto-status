@@ -65,11 +65,11 @@ public sealed class Plugin : IDalamudPlugin
 
         CommandManager.AddHandler(CommandName, new CommandInfo(OnCommand)
         {
-            HelpMessage = "Open the Auto-Status settings window."
+            HelpMessage = "Open the Auto-status settings window."
         });
         CommandManager.AddHandler(CommandAlias, new CommandInfo(OnCommand)
         {
-            HelpMessage = "Open the Auto-Status settings window."
+            HelpMessage = "Open the Auto-status settings window."
         });
 
         Framework.Update += OnFrameworkUpdate;
@@ -174,16 +174,16 @@ public sealed class Plugin : IDalamudPlugin
 
             if (!ok)
             {
-                Log.Warning("Auto-Status failed to set online status: {StatusId}", statusId);
+                Log.Warning("Auto-status failed to set online status: {StatusId}", statusId);
                 if (configuration.DebugFocusLogs || isManual)
                 {
-                    ChatGui.PrintError($"Auto-Status: failed to set status {statusId}");
+                    ChatGui.PrintError($"Auto-status: failed to set status {statusId}");
                 }
             }
 
             if (configuration.DebugFocusLogs || isManual)
             {
-                ChatGui.Print($"Auto-Status: set status {statusId} (focused={isFocused}, ok={ok})");
+                ChatGui.Print($"Auto-status: set status {statusId} (focused={isFocused}, ok={ok})");
             }
         }
 

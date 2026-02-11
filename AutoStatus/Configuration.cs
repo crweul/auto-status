@@ -19,7 +19,7 @@ public sealed class Configuration : IPluginConfiguration
 
     public string LfpJobNameUnfocused { get; set; } = string.Empty;
 
-    public bool ShowAllStatuses { get; set; } = true;
+    public bool ShowAllStatuses { get; set; } = false;
 
     public bool DebugFocusLogs { get; set; } = false;
 
