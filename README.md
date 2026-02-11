@@ -3,7 +3,7 @@
 # Auto-status
 Auto-status is a Dalamud plugin that automatically toggles your in-game status based on whether the game's window is focused.
 
-![](https://i.imgur.com/VfYEhN4.png)
+![](https://i.imgur.com/oxXsIBm.png)
 
 ## Installation
 Follow the instructions in [dalamud-plugins](https://github.com/crweul/dalamud-plugins).
