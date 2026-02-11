@@ -1,0 +1,12 @@
+{
+  "Author": "crweul",
+  "Name": "Auto-Status",
+  "Punchline": "Toggle /afk or any status when the game loses focus.",
+  "Description": "Sets your status to /afk or any status of choice when the game isn't the foreground window, and reverts it when the game regains focus. Commands: /autostatus, /aus.",
+  "ApplicableVersion": "any",
+  "Tags": [
+    "utility",
+    "status",
+    "afk"
+  ]
+}

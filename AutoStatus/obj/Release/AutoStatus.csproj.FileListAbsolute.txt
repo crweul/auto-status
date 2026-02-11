@@ -1,0 +1,8 @@
+/home/ky/code/auto-afk/AutoStatus/obj/Release/AutoStatus.csproj.AssemblyReference.cache
+/home/ky/code/auto-afk/AutoStatus/obj/Release/AutoStatus.GeneratedMSBuildEditorConfig.editorconfig
+/home/ky/code/auto-afk/AutoStatus/obj/Release/AutoStatus.AssemblyInfoInputs.cache
+/home/ky/code/auto-afk/AutoStatus/obj/Release/AutoStatus.AssemblyInfo.cs
+/home/ky/code/auto-afk/AutoStatus/obj/Release/AutoStatus.csproj.CoreCompileInputs.cache
+/home/ky/code/auto-afk/AutoStatus/bin/Release/AutoStatus.deps.json
+/home/ky/code/auto-afk/AutoStatus/bin/Release/AutoStatus.dll
+/home/ky/code/auto-afk/AutoStatus/obj/Release/AutoStatus.dll
