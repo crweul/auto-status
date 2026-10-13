@@ -44,6 +44,8 @@ public sealed class Plugin : IDalamudPlugin
     private OnlineStatusOption[] statusOptions = Array.Empty<OnlineStatusOption>();
     private string[] statusLabels = Array.Empty<string>();
 
+    private const double RefocusDebounceSeconds = 2d;
+
     private const string CommandName = "/autostatus";
     private const string CommandAlias = "/aus";
 
@@ -54,6 +56,7 @@ public sealed class Plugin : IDalamudPlugin
     public Plugin()
     {
         configuration = PluginInterface.GetPluginConfig() as Configuration ?? new Configuration();
+        configuration.ClampUnfocusedDelay();
         ReloadStatusOptions();
         EnsureDefaults();
         EnsureStatusIdsValid();
@@ -146,7 +149,11 @@ public sealed class Plugin : IDalamudPlugin
             return;
         }
 
-        if (DateTime.UtcNow - pendingFocusSince < TimeSpan.FromSeconds(2))
+        var delaySeconds = isFocused
+            ? RefocusDebounceSeconds
+            : configuration.UnfocusedDelaySeconds;
+
+        if (DateTime.UtcNow - pendingFocusSince < TimeSpan.FromSeconds(delaySeconds))
         {
             return;
         }

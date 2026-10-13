@@ -1,0 +1,24 @@
+[
+  {
+    "Author": "crweul",
+    "Name": "auto-status",
+    "InternalName": "AutoStatus",
+    "AssemblyVersion": "1.0.1",
+    "Description": "Auto-status is a Dalamud plugin that automatically toggles your in-game status based on whether the game's window is focused.",
+    "ApplicableVersion": "any",
+    "RepoUrl": "https://github.com/crweul/auto-status",
+    "Tags": [
+      "utility"
+    ],
+    "DalamudApiLevel": 15,
+    "LoadRequiredState": 0,
+    "LoadSync": false,
+    "CanUnloadAsync": false,
+    "LoadPriority": 0,
+    "AcceptsFeedback": false,
+    "DownloadLinkInstall": "https://github.com/crweul/auto-status/releases/download/latest/latest.zip",
+    "DownloadLinkUpdate": "https://github.com/crweul/auto-status/releases/download/latest/latest.zip",
+    "DownloadLinkTesting": "hhttps://github.com/crweul/auto-status/releases/download/latest/latest.zip",
+    "LastUpdate": "1770768000"
+  }
+]

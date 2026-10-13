@@ -56,6 +56,27 @@ public sealed class SettingsWindow : Window
             }
         }
 
+        var unfocusedDelay = configuration.UnfocusedDelaySeconds;
+        if (ImGui.SliderFloat(
+                "Delay before unfocused status",
+                ref unfocusedDelay,
+                Configuration.MinUnfocusedDelaySeconds,
+                Configuration.MaxUnfocusedDelaySeconds,
+                FormatDelay(unfocusedDelay),
+                Dalamud.Bindings.ImGui.ImGuiSliderFlags.Logarithmic))
+        {
+            configuration.UnfocusedDelaySeconds = unfocusedDelay;
+            configuration.ClampUnfocusedDelay();
+            configuration.Save(Plugin.PluginInterface);
+        }
+
+        if (ImGui.IsItemHovered())
+        {
+            ImGui.SetTooltip(
+                "How long the game has to stay unfocused before the unfocused status is applied.\n\n" +
+                "Ctrl+click it to type an exact value in seconds (max 600 = 10 minutes).");
+        }
+
         ImGui.Separator();
 
         var showAllStatuses = configuration.ShowAllStatuses;
@@ -104,5 +125,16 @@ public sealed class SettingsWindow : Window
         }
 
         ImGui.PopStyleColor(4);
+    }
+
+    private static string FormatDelay(float seconds)
+    {
+        if (seconds < 60f)
+        {
+            return "%.1f s";
+        }
+
+        var total = (int)MathF.Round(seconds);
+        return $"%.0f s ({total / 60}m {total % 60}s)";
     }
 }
